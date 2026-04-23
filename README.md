@@ -15,11 +15,11 @@ A dark horror and sci-fi themed website showcasing the works of writer Elliot Bl
 ```
 ElliotBlackStoneWriting/
 ├── index.html          # Homepage with featured stories
-├── about.html          # About the author page
 ├── stories.html        # Stories listing page
 ├── css/
 │   └── style.css       # Main stylesheet with dark theme
 ├── js/
+│   ├── footer.js       # Injects shared footer markup into #site-footer
 │   └── main.js         # JavaScript for interactivity
 └── stories/
     ├── the-last-transmission.html
@@ -43,11 +43,6 @@ ElliotBlackStoneWriting/
 - Full story content with reading progress bar
 - Navigation between stories
 - Story metadata (category, reading time, date)
-
-### About (`about.html`)
-- Author biography
-- Writing philosophy
-- Personal information
 
 ## Customization
 

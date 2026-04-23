@@ -60,7 +60,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe story cards
-document.querySelectorAll('.story-card, .story-card-large, .philosophy-item').forEach(card => {
+document.querySelectorAll('.story-card, .story-card-large').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
