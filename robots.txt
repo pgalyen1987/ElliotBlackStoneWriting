@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.elliotblackstone.com/sitemap.xml
+Sitemap: https://elliotblackstone.com/sitemap.xml

@@ -10,7 +10,7 @@ import re
 import json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE = "https://www.elliotblackstone.com"
+BASE = "https://elliotblackstone.com"
 PEN = "Elliot Blackstone"
 LEGAL = "Patrick Galyen"
 LASTMOD = "2026-06-02"

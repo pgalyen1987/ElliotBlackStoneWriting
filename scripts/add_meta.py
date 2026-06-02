@@ -8,7 +8,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE = "https://www.elliotblackstone.com"
+BASE = "https://elliotblackstone.com"
 SITE = "Elliot Blackstone"
 AUTHOR = "Patrick Galyen"
 
