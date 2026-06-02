@@ -652,6 +652,72 @@ body {
     transform: translateX(-10px);
 }
 
+/* Story Share */
+.story-share {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.story-share__label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.story-share__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.share-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.share-btn:hover {
+    border-color: var(--accent-glow);
+    color: var(--accent-glow);
+    box-shadow: 0 4px 14px var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+.share-btn--copy.copied {
+    border-color: var(--accent-glow);
+    color: var(--accent-glow);
+}
+
+@media (max-width: 600px) {
+    .share-btn {
+        flex: 1 1 calc(50% - 0.75rem);
+        justify-content: center;
+    }
+}
+
 /* Footer */
 footer {
     background-color: var(--bg-secondary);
