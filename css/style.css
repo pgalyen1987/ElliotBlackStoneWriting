@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,6 +8,8 @@
 }
 
 :root {
+    --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-body: 'Spectral', Georgia, 'Times New Roman', serif;
     --bg-primary: #0a0f0a;
     --bg-secondary: #0f1410;
     --bg-tertiary: #141914;
@@ -14,10 +18,11 @@
     --accent-primary: #2d4a2d;
     --accent-secondary: #1a2e1a;
     --accent-glow: #3d5a3d;
+    --glow-rgb: 45, 74, 45;
     --border-color: #1a1f1a;
-    --hover-glow: rgba(45, 74, 45, 0.4);
+    --hover-glow: rgba(var(--glow-rgb), 0.4);
     --shadow-dark: rgba(0, 0, 0, 0.9);
-    --shadow-glow: rgba(45, 74, 45, 0.5);
+    --shadow-glow: rgba(var(--glow-rgb), 0.5);
     --forest-green: #0d1b0d;
     --forest-dark: #051005;
     --forest-brown: #2a1f1a;
@@ -25,13 +30,27 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3,
+.logo a,
+.hero h1,
+.page-header h1,
+.featured-stories h2,
+.story-content h3,
+.story-header h1,
+.story-body h2,
+.story-body h3,
+.quote-section blockquote {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
 }
 
 .container {
@@ -71,7 +90,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 0 8px rgba(45, 74, 45, 0.6));
+    filter: drop-shadow(0 0 8px rgba(var(--glow-rgb), 0.6));
     letter-spacing: 1px;
 }
 
@@ -91,6 +110,9 @@ body {
     transition: all 0.3s ease;
     position: relative;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
 }
 
 .nav-menu a::after {
@@ -102,7 +124,7 @@ body {
     height: 2px;
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow));
     transition: width 0.3s ease;
-    box-shadow: 0 0 5px rgba(45, 74, 45, 0.5);
+    box-shadow: 0 0 5px rgba(var(--glow-rgb), 0.5);
 }
 
 .nav-menu a:hover,
@@ -133,6 +155,40 @@ body {
     height: 2px;
     background-color: var(--text-primary);
     transition: all 0.3s ease;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb .container {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-glow);
+}
+
+.breadcrumb__sep {
+    margin: 0 0.5rem;
+    color: var(--accent-primary);
+}
+
+.breadcrumb [aria-current="page"] {
+    color: var(--text-primary);
 }
 
 /* Hero Section */
@@ -206,16 +262,16 @@ body {
     position: relative;
     color: var(--text-primary);
     text-shadow: 
-        0 0 10px rgba(45, 74, 45, 0.6),
-        0 0 20px rgba(45, 74, 45, 0.4),
-        0 0 30px rgba(45, 74, 45, 0.3),
+        0 0 10px rgba(var(--glow-rgb), 0.6),
+        0 0 20px rgba(var(--glow-rgb), 0.4),
+        0 0 30px rgba(var(--glow-rgb), 0.3),
         0 0 5px rgba(0, 0, 0, 0.8);
-    animation: glitch 3s infinite;
+    animation: title-flicker 6s ease-in-out infinite;
 }
 
 .glitch::before,
 .glitch::after {
-    content: attr(data-text);
+    content: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -237,6 +293,16 @@ body {
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim 1s infinite linear alternate-reverse;
     opacity: 0.8;
+}
+
+@keyframes title-flicker {
+    0%, 100% { opacity: 1; }
+    8% { opacity: 0.82; }
+    9% { opacity: 1; }
+    41% { opacity: 0.88; }
+    43% { opacity: 1; }
+    71% { opacity: 0.95; }
+    72% { opacity: 1; }
 }
 
 @keyframes glitch-anim {
@@ -293,8 +359,8 @@ body {
 .btn-primary {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: var(--text-primary);
-    box-shadow: 0 4px 15px var(--shadow-glow), 0 0 20px rgba(45, 74, 45, 0.4);
-    border: 1px solid rgba(45, 74, 45, 0.5);
+    box-shadow: 0 4px 15px var(--shadow-glow), 0 0 20px rgba(var(--glow-rgb), 0.4);
+    border: 1px solid rgba(var(--glow-rgb), 0.5);
 }
 
 .btn-primary:hover {
@@ -306,7 +372,7 @@ body {
     background: transparent;
     color: var(--text-primary);
     border: 2px solid var(--accent-primary);
-    box-shadow: 0 0 10px rgba(45, 74, 45, 0.3);
+    box-shadow: 0 0 10px rgba(var(--glow-rgb), 0.3);
 }
 
 .btn-secondary:hover {
@@ -328,7 +394,7 @@ body {
 /* Horror atmosphere elements */
 .story-card:hover,
 .story-card-large:hover {
-    box-shadow: 0 10px 30px var(--shadow-glow), 0 0 20px rgba(45, 74, 45, 0.3);
+    box-shadow: 0 10px 30px var(--shadow-glow), 0 0 20px rgba(var(--glow-rgb), 0.3);
 }
 
 /* Featured Stories */
@@ -428,7 +494,7 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-block;
-    text-shadow: 0 0 5px rgba(45, 74, 45, 0.5);
+    text-shadow: 0 0 5px rgba(var(--glow-rgb), 0.5);
 }
 
 .read-more:hover {
@@ -522,7 +588,7 @@ body {
     background-color: var(--bg-secondary);
     background-image: 
         linear-gradient(180deg, var(--forest-dark) 0%, var(--bg-secondary) 100%),
-        radial-gradient(ellipse at center, rgba(45, 74, 45, 0.1) 0%, transparent 70%);
+        radial-gradient(ellipse at center, rgba(var(--glow-rgb), 0.1) 0%, transparent 70%);
     text-align: center;
     position: relative;
 }
@@ -556,7 +622,7 @@ body {
     color: var(--accent-primary);
     opacity: 0.2;
     position: absolute;
-    text-shadow: 0 0 10px rgba(45, 74, 45, 0.5);
+    text-shadow: 0 0 10px rgba(var(--glow-rgb), 0.5);
 }
 
 .quote-section blockquote::before {
@@ -896,5 +962,120 @@ footer p {
 
     .container {
         padding: 0 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glitch,
+    .forest-background,
+    .fog-overlay {
+        animation: none;
+    }
+}
+
+/* ===== Per-story themes ===== */
+/* Override accent + glow variables; works on <body> or on a card. */
+.theme-feeding {
+    --accent-primary: #5c6b78;
+    --accent-secondary: #38434c;
+    --accent-glow: #a6bccb;
+    --forest-accent: #8198a6;
+    --glow-rgb: 158, 182, 199;
+}
+
+.theme-two-hits {
+    --accent-primary: #6d3f86;
+    --accent-secondary: #3d2350;
+    --accent-glow: #c489e2;
+    --forest-accent: #9a5fb5;
+    --glow-rgb: 184, 120, 220;
+}
+
+.theme-salkehatchie {
+    --accent-primary: #356056;
+    --accent-secondary: #1d3a32;
+    --accent-glow: #74c39e;
+    --forest-accent: #b98c4a;
+    --glow-rgb: 102, 184, 146;
+}
+
+/* Per-story page ambiance wash (only on the reading page body) */
+body.theme-feeding {
+    background-image: radial-gradient(ellipse at 50% -10%, rgba(158, 182, 199, 0.07), transparent 55%);
+}
+
+body.theme-two-hits {
+    background-image: radial-gradient(ellipse at 50% -10%, rgba(184, 120, 220, 0.09), transparent 55%);
+}
+
+body.theme-salkehatchie {
+    background-image: radial-gradient(ellipse at 50% -10%, rgba(102, 184, 146, 0.07), transparent 55%);
+}
+
+/* ===== Story banner (full-width header art) ===== */
+.story-banner {
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.story-banner__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.5) saturate(0.85) contrast(1.05);
+    z-index: 1;
+}
+
+.story-banner__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(180deg, rgba(10, 15, 10, 0.35) 0%, rgba(10, 15, 10, 0.95) 100%),
+        radial-gradient(ellipse at 50% 120%, rgba(var(--glow-rgb), 0.18) 0%, transparent 60%);
+}
+
+.story-banner__content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+}
+
+.story-banner h1 {
+    font-family: var(--font-display);
+    font-size: 3.6rem;
+    margin: 0.6rem 0 1rem;
+    color: var(--text-primary);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 34px rgba(var(--glow-rgb), 0.45);
+}
+
+.story-banner .story-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .story-banner {
+        min-height: 240px;
+    }
+
+    .story-banner h1 {
+        font-size: 2.4rem;
+    }
+
+    .story-banner__content {
+        padding-top: 2rem;
+        padding-bottom: 1.75rem;
     }
 }

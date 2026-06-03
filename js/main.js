@@ -121,8 +121,8 @@ document.querySelectorAll('.story-card, .story-card-large').forEach(card => {
 // Social share bar (auto-injected on individual story pages)
 (function () {
     const storyPage = document.querySelector('.story-page');
-    const header = storyPage && storyPage.querySelector('.story-header');
-    if (!storyPage || !header) {
+    const anchor = storyPage && storyPage.querySelector('.story-body');
+    if (!storyPage || !anchor) {
         return;
     }
 
@@ -162,7 +162,7 @@ document.querySelectorAll('.story-card, .story-card-large').forEach(card => {
         ICONS.copy + '<span>Copy link</span></button>' +
         '</div>';
 
-    header.insertAdjacentElement('afterend', bar);
+    anchor.parentNode.insertBefore(bar, anchor);
 
     // Open social links in a centered popup rather than a full new tab.
     bar.querySelectorAll('a.share-btn').forEach((link) => {

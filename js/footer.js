@@ -12,6 +12,6 @@
     el.innerHTML =
         '<div class="container">' +
         '<p>&copy; 2026 Elliot Blackstone. All rights reserved.</p>' +
-        '<p class="footer-subtitle">Exploring darkness, one story at a time.</p>' +
+        '<p class="footer-subtitle">The Grey Anthology — quiet horrors, ongoing.</p>' +
         '</div>';
 }());
