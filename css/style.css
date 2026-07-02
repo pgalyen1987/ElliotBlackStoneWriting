@@ -10,23 +10,43 @@
 :root {
     --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --font-body: 'Spectral', Georgia, 'Times New Roman', serif;
-    --bg-primary: #0a0f0a;
-    --bg-secondary: #0f1410;
-    --bg-tertiary: #141914;
-    --text-primary: #d4d4d4;
-    --text-secondary: #8a8a8a;
-    --accent-primary: #2d4a2d;
-    --accent-secondary: #1a2e1a;
-    --accent-glow: #3d5a3d;
-    --glow-rgb: 45, 74, 45;
-    --border-color: #1a1f1a;
+    --bg-primary: #060507;
+    --bg-secondary: #0a080b;
+    --bg-tertiary: #0f0d11;
+    --text-primary: #cfc9bd;
+    --text-secondary: #8f887b;
+    --accent-primary: #7d1712;
+    --accent-secondary: #470b09;
+    --accent-glow: #c1352b;
+    --glow-rgb: 168, 34, 26;
+    --border-color: #1d1216;
     --hover-glow: rgba(var(--glow-rgb), 0.4);
     --shadow-dark: rgba(0, 0, 0, 0.9);
-    --shadow-glow: rgba(var(--glow-rgb), 0.5);
-    --forest-green: #0d1b0d;
-    --forest-dark: #051005;
-    --forest-brown: #2a1f1a;
-    --forest-accent: #4a5a3a;
+    --shadow-glow: rgba(var(--glow-rgb), 0.35);
+    --forest-green: #0a0709;
+    --forest-dark: #040305;
+    --forest-brown: #201216;
+    --forest-accent: #6e2c22;
+}
+
+::selection {
+    background: #5c0f0b;
+    color: #e8e3d6;
+}
+
+html {
+    scrollbar-color: #3a1512 #08070a;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background: #08070a;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #2e1210;
+    border-radius: 0;
 }
 
 body {
@@ -37,6 +57,46 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Film grain over everything — the image is never quite still */
+body::before {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.045;
+    pointer-events: none;
+    z-index: 9998;
+    animation: grain-crawl 1.1s steps(4) infinite, projector-stutter 9s linear infinite;
+}
+
+/* The dark presses in from the edges of the page */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 38%, transparent 52%, rgba(0, 0, 0, 0.52) 100%);
+    pointer-events: none;
+    z-index: 9997;
+}
+
+@keyframes grain-crawl {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2%, 1%); }
+    50% { transform: translate(1%, -2%); }
+    75% { transform: translate(-1%, 2%); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes projector-stutter {
+    0%, 90%, 100% { opacity: 0.045; }
+    91% { opacity: 0.10; }
+    92% { opacity: 0.03; }
+    93.5% { opacity: 0.09; }
+    95% { opacity: 0.045; }
 }
 
 h1, h2, h3,
@@ -67,7 +127,7 @@ h1, h2, h3,
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(6, 5, 7, 0.92);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
 
@@ -266,12 +326,12 @@ h1, h2, h3,
         0 0 20px rgba(var(--glow-rgb), 0.4),
         0 0 30px rgba(var(--glow-rgb), 0.3),
         0 0 5px rgba(0, 0, 0, 0.8);
-    animation: title-flicker 6s ease-in-out infinite;
+    animation: glitch 3s infinite;
 }
 
 .glitch::before,
 .glitch::after {
-    content: none;
+    content: attr(data-text);
     position: absolute;
     top: 0;
     left: 0;
@@ -293,16 +353,6 @@ h1, h2, h3,
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim 1s infinite linear alternate-reverse;
     opacity: 0.8;
-}
-
-@keyframes title-flicker {
-    0%, 100% { opacity: 1; }
-    8% { opacity: 0.82; }
-    9% { opacity: 1; }
-    41% { opacity: 0.88; }
-    43% { opacity: 1; }
-    71% { opacity: 0.95; }
-    72% { opacity: 1; }
 }
 
 @keyframes glitch-anim {
@@ -342,7 +392,10 @@ h1, h2, h3,
 .btn {
     padding: 0.75rem 2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -422,7 +475,7 @@ h1, h2, h3,
 
 .story-card {
     background-color: var(--bg-tertiary);
-    border-radius: 10px;
+    border-radius: 3px;
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
@@ -515,7 +568,7 @@ h1, h2, h3,
 
 .story-card-large {
     background-color: var(--bg-tertiary);
-    border-radius: 10px;
+    border-radius: 3px;
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
@@ -541,13 +594,17 @@ h1, h2, h3,
 
 .story-category {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--accent-primary);
-    color: var(--text-primary);
-    border-radius: 15px;
-    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(var(--glow-rgb), 0.12);
+    border: 1px solid rgba(var(--glow-rgb), 0.45);
+    color: var(--accent-glow);
+    border-radius: 2px;
+    font-size: 0.7rem;
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-shadow: 0 0 8px rgba(var(--glow-rgb), 0.4);
 }
 
 .story-excerpt {
@@ -968,7 +1025,10 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
     .glitch,
     .forest-background,
-    .fog-overlay {
+    .fog-overlay,
+    body::before,
+    .story-banner h1,
+    .page-header h1 {
         animation: none;
     }
 }
@@ -999,6 +1059,22 @@ footer p {
     --glow-rgb: 102, 184, 146;
 }
 
+.theme-black-galleon {
+    --accent-primary: #565c64;
+    --accent-secondary: #2f343a;
+    --accent-glow: #a2adba;
+    --forest-accent: #a97e2f;
+    --glow-rgb: 152, 164, 178;
+}
+
+.theme-negative-space {
+    --accent-primary: #27506e;
+    --accent-secondary: #142c40;
+    --accent-glow: #6fa8d6;
+    --forest-accent: #46759e;
+    --glow-rgb: 104, 156, 204;
+}
+
 /* Per-story page ambiance wash (only on the reading page body) */
 body.theme-feeding {
     background-image: radial-gradient(ellipse at 50% -10%, rgba(158, 182, 199, 0.07), transparent 55%);
@@ -1010,6 +1086,14 @@ body.theme-two-hits {
 
 body.theme-salkehatchie {
     background-image: radial-gradient(ellipse at 50% -10%, rgba(102, 184, 146, 0.07), transparent 55%);
+}
+
+body.theme-black-galleon {
+    background-image: radial-gradient(ellipse at 50% -10%, rgba(152, 164, 178, 0.07), transparent 55%);
+}
+
+body.theme-negative-space {
+    background-image: radial-gradient(ellipse at 50% -10%, rgba(104, 156, 204, 0.08), transparent 55%);
 }
 
 /* ===== Story banner (full-width header art) ===== */
@@ -1078,4 +1162,65 @@ body.theme-salkehatchie {
         padding-top: 2rem;
         padding-bottom: 1.75rem;
     }
+}
+
+/* ===== Horror atmosphere: reading experience ===== */
+/* Blood-lit drop cap opening every story */
+.story-body > p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.4em;
+    font-weight: 700;
+    float: left;
+    line-height: 0.78;
+    padding: 0.08em 0.14em 0 0;
+    color: var(--accent-glow);
+    text-shadow: 0 0 22px rgba(var(--glow-rgb), 0.45), 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Titles behave like a failing fluorescent tube */
+.story-banner h1,
+.page-header h1 {
+    animation: title-flicker 7s infinite;
+}
+
+@keyframes title-flicker {
+    0%, 100% { opacity: 1; }
+    41% { opacity: 1; }
+    42% { opacity: 0.72; }
+    43% { opacity: 1; }
+    82% { opacity: 1; }
+    83% { opacity: 0.85; }
+    84% { opacity: 0.65; }
+    85% { opacity: 1; }
+}
+
+/* Emphasis lines (whispers, recipes, the knock of the pipes) */
+.story-body em {
+    color: var(--text-primary);
+    text-shadow: 0 0 12px rgba(var(--glow-rgb), 0.25);
+}
+
+/* Whole-page dying-bulb wash on story pages */
+.story-page {
+    position: relative;
+}
+
+/* ===== Whole-card click target ===== */
+/* The "Read more" link is stretched to cover the entire card. */
+.story-card,
+.story-card-large {
+    position: relative;
+}
+
+.story-card .read-more::after,
+.story-card-large .read-more::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.story-card,
+.story-card-large {
+    cursor: pointer;
 }
