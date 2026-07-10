@@ -56,7 +56,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: greyscale;
 }
 
 /* Film grain over everything — the image is never quite still */
