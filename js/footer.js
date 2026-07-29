@@ -13,5 +13,9 @@
         '<div class="container">' +
         '<p>&copy; 2026 Elliot Blackstone. All rights reserved.</p>' +
         '<p class="footer-subtitle">The Grey Anthology</p>' +
+        '<p class="footer-builtby" style="margin-top:0.75rem">' +
+        '<a href="https://rebelstudiossoftware.com" target="_blank" rel="noopener" title="Built by Rebel Studios" aria-label="Built by Rebel Studios">' +
+        '<img src="/images/badge-r.png" alt="Built by Rebel Studios" width="35" height="26" style="height:26px;width:auto;vertical-align:middle;opacity:0.85">' +
+        '</a></p>' +
         '</div>';
 }());
