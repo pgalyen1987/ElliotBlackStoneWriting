@@ -1,2 +1,9 @@
 # Local build/generator scripts (not part of the published site)
 scripts/
+
+# automated daily-story run logs
+logs/
+
+# story generator (local tooling, mirrors scripts/ convention)
+bin/
+data/.seed_history.json
