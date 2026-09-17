@@ -1308,3 +1308,122 @@ body.theme-negative-space {
 #site-footer .footer-subtitle a:hover {
     color: var(--accent-glow);
 }
+
+/* ============================================================
+   Interactive stories (gamebook)
+   ============================================================ */
+
+.gb { display: block; margin: 0 auto; max-width: 46rem; }
+
+.gb-loading, .gb-error { color: var(--text-secondary); font-style: italic; text-align: center; padding: 3rem 0; }
+.gb-error a { color: var(--accent-glow); }
+
+/* --- the scene ------------------------------------------------ */
+.gb-scene {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    box-shadow: 0 18px 46px var(--shadow-dark);
+}
+.gb-scene-img,
+.gb-scene-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gb-scene-img { object-fit: cover; transition: opacity 700ms ease, filter 700ms ease; }
+.gb-scene-img.gb-fading { opacity: 0.15; filter: blur(6px); }
+.gb-scene-canvas { pointer-events: none; }
+
+.gb-sound {
+    position: absolute; right: 0.6rem; bottom: 0.6rem;
+    background: rgba(6, 5, 7, 0.68);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.35rem 0.7rem; border-radius: 2px; cursor: pointer;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+.gb-sound:hover { color: var(--text-primary); border-color: var(--accent-primary); }
+.gb-sound[aria-pressed="true"] { color: var(--accent-glow); border-color: var(--accent-primary); }
+
+/* --- the surveyor's panel ------------------------------------- */
+.gb-panel {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border-color); border-top: none;
+    background: var(--bg-secondary);
+}
+.gb-cell { padding: 0.7rem 0.9rem; text-align: center; border-right: 1px solid var(--border-color); }
+.gb-cell:last-child { border-right: none; }
+.gb-cell-label {
+    display: block; font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.2rem;
+}
+.gb-cell-value {
+    display: block; font-family: var(--font-display); font-size: 1.45rem;
+    color: var(--text-primary); font-variant-numeric: tabular-nums;
+}
+.gb-cell-value.gb-rolling { color: var(--accent-glow); }
+
+.gb-carried { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 0; padding: 0; }
+.gb-chip {
+    font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary); border: 1px solid var(--border-color);
+    border-radius: 999px; padding: 0.22rem 0.7rem; background: var(--bg-tertiary);
+}
+
+/* --- prose ---------------------------------------------------- */
+.gb-passage { margin: 1.8rem 0 0; outline: none; }
+.gb-passage p { margin-bottom: 1.25rem; font-size: 1.08rem; line-height: 1.85; min-height: 1.85em; }
+.gb-passage strong { color: var(--text-primary); font-weight: 600; }
+.gb-passage em { color: var(--text-secondary); }
+
+/* --- choices -------------------------------------------------- */
+.gb-choices { display: flex; flex-direction: column; gap: 0.65rem; margin: 1.6rem 0 0; }
+.gb-choice {
+    width: 100%; text-align: left;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color); border-left: 2px solid var(--accent-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-body); font-size: 1rem; line-height: 1.6;
+    padding: 0.95rem 1.15rem; cursor: pointer;
+    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+.gb-choice:hover, .gb-choice:focus-visible {
+    border-left-color: var(--accent-glow);
+    background: var(--bg-tertiary);
+    transform: translateX(3px);
+    box-shadow: 0 0 22px -8px var(--hover-glow);
+}
+.gb-restart { text-align: center; border-left-color: var(--border-color); font-style: italic; }
+
+/* --- endings -------------------------------------------------- */
+.gb-ending { text-align: center; margin: 0.6rem 0 0; padding: 1.6rem 1rem; border-top: 1px solid var(--border-color); }
+.gb-ending-label {
+    font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--accent-glow); margin-bottom: 0.5rem;
+}
+.gb-ending-title { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); }
+
+.gb-ledger { border: 1px solid var(--border-color); background: var(--bg-secondary); padding: 1.1rem 1.3rem; }
+.gb-ledger-count {
+    font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-secondary); margin-bottom: 0.7rem;
+}
+.gb-ledger-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 1.4rem; }
+.gb-ledger-list li { font-size: 0.92rem; padding: 0.22rem 0; break-inside: avoid; }
+.gb-found { color: var(--text-primary); }
+.gb-found::before { content: "✓ "; color: var(--accent-glow); }
+.gb-unfound { color: var(--text-secondary); opacity: 0.45; letter-spacing: 0.04em; }
+.gb-ledger-done { margin-top: 0.9rem; font-style: italic; color: var(--accent-glow); font-size: 0.92rem; }
+
+@media (max-width: 600px) {
+    .gb-cell-value { font-size: 1.2rem; }
+    .gb-ledger-list { columns: 1; }
+    .gb-passage p { font-size: 1.02rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gb-choice, .gb-scene-img { transition: none; }
+    .gb-choice:hover, .gb-choice:focus-visible { transform: none; }
+}

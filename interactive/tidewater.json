@@ -1,0 +1,648 @@
+{
+  "slug": "tidewater",
+  "title": "Tidewater",
+  "start": "landing",
+  "completeNote": "Every way out of the marsh, and none of them the same acreage. Ezra Doig would have appreciated that.",
+  "endings": [
+    {
+      "id": "twelfth",
+      "title": "The Twelfth Survey"
+    },
+    {
+      "id": "even",
+      "title": "Even Numbers"
+    },
+    {
+      "id": "doig",
+      "title": "Doig’s Hand"
+    },
+    {
+      "id": "counter",
+      "title": "The Woman Who Counts"
+    },
+    {
+      "id": "short",
+      "title": "Short By One"
+    },
+    {
+      "id": "salt",
+      "title": "Salt And Paper"
+    },
+    {
+      "id": "true",
+      "title": "The True Line"
+    }
+  ],
+  "nodes": {
+    "landing": {
+      "text": [
+        "The county gave you a plat, a truck with a bad alternator, and a number: two hundred seventeen acres of marsh east of Bennett’s Point, deeded to the Doig family since 1911 and surveyed eleven times since.",
+        "No two of those surveys agree. Not by a little. The spread between the largest and the smallest is nine and a half acres — enough land to lose a house in, appearing and disappearing across seventy years of careful men with good instruments.",
+        "The twelfth survey is yours. It is October, the tide is going out, and you have until dark."
+      ],
+      "choices": [
+        {
+          "label": "Stop at the courthouse first. Eleven wrong answers are still eleven answers.",
+          "to": "courthouse"
+        },
+        {
+          "label": "Drive straight out. The marsh will tell you more than a filing cabinet will.",
+          "to": "marsh_edge"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "courthouse": {
+      "text": [
+        "The records room in Walterboro smells like wet cardboard and old toner. Miss Rowe brings the Doig file on a cart because it does not fit in her arms.",
+        "You lay the surveys out in order. 1911. 1926. 1938. 1949, twice. 1955. 1961, 1962, 1963 — three in three years, which means somebody was arguing. 1970. 1981.",
+        "The acreages run 217.6, 214.2, 219.0, 216.8, 218.3, 215.1, 217.9, 213.4, 220.6, 216.2, 217.5.",
+        "You do the arithmetic on the back of your hand before you can stop yourself. They average two hundred seventeen exactly. Not near it. Exactly.",
+        "“That’s the part nobody likes,” Miss Rowe says, not looking up. “Every one of them wrong, and all of them together right.”"
+      ],
+      "choices": [
+        {
+          "label": "Ask what happened to the first surveyor.",
+          "to": "ask_rowe"
+        },
+        {
+          "label": "Ask for Ezra Doig’s 1911 field book.",
+          "to": "fieldbook"
+        },
+        {
+          "label": "You have the numbers. Go.",
+          "to": "marsh_edge"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "ask_rowe": {
+      "text": [
+        "Miss Rowe puts her pencil down.",
+        "“Ezra Doig surveyed his own land in 1911 and did not come back out of it. They found the tripod set up and level. They found his coat on it. They did not find him.”",
+        "She says it the way you would give somebody directions to the post office.",
+        "“Man out there since has always been careful to finish before dark. Mr. Poole in ’81 finished at four in the afternoon and would not say why.”"
+      ],
+      "sets": [
+        "knows_doig"
+      ],
+      "choices": [
+        {
+          "label": "Ask for Doig’s field book.",
+          "to": "fieldbook",
+          "sets": [
+            "knows_doig"
+          ]
+        },
+        {
+          "label": "Thank her and go.",
+          "to": "marsh_edge",
+          "sets": [
+            "knows_doig"
+          ]
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "fieldbook": {
+      "text": [
+        "It is smaller than you expect. Oilcloth cover, gone the colour of a tea stain, the spine soft as cloth.",
+        "Doig wrote a fine hand. Bearings, distances, the little sketched corners with their witness trees. He was good. You can tell a good surveyor in two pages the way you can tell a good driver in two turns.",
+        "The last entry is dated 14 November 1911 and it is not a bearing. It says:",
+        "*It comes out even if I go on. It comes out even if I do not. I would rather know which.*",
+        "Under that, in the same hand but pressed harder, a single line of tally marks. You count them twice. Two hundred sixteen."
+      ],
+      "choices": [
+        {
+          "label": "Sign it out. You may need his corners.",
+          "to": "take_book"
+        },
+        {
+          "label": "Photograph the last page and leave the book where it belongs.",
+          "to": "leave_book"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "take_book": {
+      "text": [
+        "Miss Rowe writes your name in the ledger and turns the book around for you to sign beside it. You notice, signing, that the column of names above yours is not long. Eleven, maybe. You do not count them on purpose.",
+        "The field book rides in your jacket, against your chest, all the way out to the Point."
+      ],
+      "sets": [
+        "fieldbook"
+      ],
+      "choices": [
+        {
+          "label": "Drive out.",
+          "to": "marsh_edge"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "leave_book": {
+      "text": [
+        "You photograph the page. The flash catches the tally marks and they come out on your screen looking less like counting than like a fence.",
+        "Miss Rowe takes the book back with both hands, the way you would take a cat off somebody."
+      ],
+      "choices": [
+        {
+          "label": "Drive out.",
+          "to": "marsh_edge"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg"
+    },
+    "marsh_edge": {
+      "text": [
+        "The road ends at a shell landing. Beyond it the spartina runs flat and gold to a line of wax myrtle a half mile out, and beyond that there is nothing but the shine of a creek bending back on itself.",
+        "It is a good marsh. Clean, even, unremarkable. Two hundred seventeen acres, more or less.",
+        "You set the tripod on the 1911 southwest corner — a cypress stob, still there, still sound, which by itself is worth remarking on — and you shoot the line.",
+        "**217.4 acres.**"
+      ],
+      "choices": [
+        {
+          "label": "Shoot it again. Instruments drift.",
+          "to": "second_shot"
+        },
+        {
+          "label": "There is smoke coming off the spit. Somebody lives out here.",
+          "to": "della_house"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg",
+      "acreage": 217.4
+    },
+    "second_shot": {
+      "text": [
+        "You level. You check the bubble. You re-occupy the same stob and you shoot the same corners in the same order and you do not touch a setting in between.",
+        "**214.9 acres.**",
+        "The instrument is fine. You know it is fine. You check it anyway, because the alternative is to start thinking about what else could be moving."
+      ],
+      "choices": [
+        {
+          "label": "A third time.",
+          "to": "third_shot"
+        },
+        {
+          "label": "Walk down to the smoke on the spit.",
+          "to": "della_house"
+        },
+        {
+          "label": "Write down 217, sign it, and go home.",
+          "to": "leave_early"
+        }
+      ],
+      "mood": "gold",
+      "image": "landing.jpg",
+      "acreage": 214.9
+    },
+    "third_shot": {
+      "text": [
+        "**219.1 acres.**",
+        "You sit down on the tailgate with the numbers in front of you and you see it the way you would see a face in a crowd.",
+        "217.4. 214.9. 219.1.",
+        "They are not drifting. They are not converging. They are swinging — over, under, over — around two hundred seventeen, and the swings are getting wider.",
+        "It is the behaviour of something correcting itself. It is what a scale does when you keep putting your thumb on it.",
+        "The tide has turned. The light has gone the colour of a bruise."
+      ],
+      "choices": [
+        {
+          "label": "Go to the house on the spit.",
+          "to": "della_house"
+        },
+        {
+          "label": "Walk Doig’s 1911 line on foot, bearing by bearing.",
+          "to": "walk_line",
+          "requires": [
+            "fieldbook"
+          ]
+        },
+        {
+          "label": "Pack the instrument. Finish before dark, like Poole did.",
+          "to": "leave_early"
+        }
+      ],
+      "mood": "dusk",
+      "image": "dusk.jpg",
+      "acreage": 219.1
+    },
+    "leave_early": {
+      "text": [
+        "You break the tripod down with your hands doing it faster than you told them to.",
+        "Behind you the marsh does what marsh does at dusk, which is to get louder in a way that has nothing to do with wind."
+      ],
+      "choices": [
+        {
+          "label": "Go.",
+          "to": "end_twelfth"
+        }
+      ],
+      "mood": "dusk",
+      "image": "dusk.jpg",
+      "acreage": 216.8
+    },
+    "della_house": {
+      "text": [
+        "The house is a single room on brick piers with a tin roof gone to rust lace, and it is swept. That is the thing you notice. The yard is swept, in a place where the yard is mud.",
+        "The woman in the door is eighty if she is a day and she is counting. You can see her mouth doing it before you are close enough to hear.",
+        "She stops when she sees the tripod on your shoulder.",
+        "“Oh,” she says. “It’s that year again.”",
+        "Her name is Della Rivers. Her people have been on this spit since before the Doigs had paper on any of it."
+      ],
+      "sets": [
+        "della"
+      ],
+      "choices": [
+        {
+          "label": "Ask what she is counting.",
+          "to": "della_count"
+        },
+        {
+          "label": "Ask about Ezra Doig.",
+          "to": "della_doig"
+        },
+        {
+          "label": "Ask why the acreage will not hold still.",
+          "to": "della_acreage"
+        }
+      ],
+      "mood": "gold",
+      "image": "house.jpg"
+    },
+    "della_count": {
+      "text": [
+        "“Everything,” she says, like you asked her what she breathes. “Posts. Birds going over. Steps down to the landing — that’s nineteen, and it has been nineteen my whole life, and I check.”",
+        "She sits down on the step and looks out at the gold.",
+        "“Something out there keeps a book. It has kept it a long time and it is not a cruel book, it is just a book, and a book has got to balance. When it comes up short it takes. When it comes up long it gives, and what it gives back is not always what it took.”",
+        "“So I count. Not to stop it. Just so there’s two of us know what the number is.”"
+      ],
+      "sets": [
+        "knows_count"
+      ],
+      "choices": [
+        {
+          "label": "Ask about Ezra Doig.",
+          "to": "della_doig"
+        },
+        {
+          "label": "Ask why the acreage will not hold still.",
+          "to": "della_acreage"
+        },
+        {
+          "label": "Ask what happens to her count when she is gone.",
+          "to": "della_successor"
+        }
+      ],
+      "mood": "gold",
+      "image": "house.jpg"
+    },
+    "della_doig": {
+      "text": [
+        "“Ezra Doig measured his own land and the land let him.” She says it without any weight on it. “Then he went and measured the part that is not land.”",
+        "She points with her whole hand, the way people do out here, at a place where the spartina goes a slightly different green — a long, straight, slightly different green, running out toward the creek bend.",
+        "“He walked that. In November. He was a careful man and he wrote down every step and the last thing he wrote down was that it came out even either way.”",
+        "“It did not come out even. It has been short one ever since.”"
+      ],
+      "sets": [
+        "knows_doig"
+      ],
+      "choices": [
+        {
+          "label": "Ask what she is counting.",
+          "to": "della_count"
+        },
+        {
+          "label": "Ask why the acreage will not hold still.",
+          "to": "della_acreage"
+        },
+        {
+          "label": "Go and stand on that line.",
+          "to": "walk_line"
+        }
+      ],
+      "mood": "gold",
+      "image": "house.jpg"
+    },
+    "della_acreage": {
+      "text": [
+        "“Because you keep asking it,” Della says. “Eleven men have come out here and asked how much there is, and it has answered eleven times, and every answer has been a little wrong, and the wrongs have been getting bigger.”",
+        "She looks at you then, properly, the way a nurse looks at a chart.",
+        "“It is not lying to you, son. It is guessing. It does not know how much there is either, because it is short one and it has been short one since 1911, and a book that is short cannot ever come out right — so it rounds. First one way. Then the other. Every year a little wider.”",
+        "“One of these years it is going to round far enough to take a house.”"
+      ],
+      "sets": [
+        "knows_count"
+      ],
+      "choices": [
+        {
+          "label": "Ask what would make it come out right.",
+          "to": "della_fix"
+        },
+        {
+          "label": "Ask about Ezra Doig.",
+          "to": "della_doig"
+        },
+        {
+          "label": "Go and walk the line she pointed at.",
+          "to": "walk_line"
+        }
+      ],
+      "mood": "gold",
+      "image": "house.jpg"
+    },
+    "della_fix": {
+      "text": [
+        "She is quiet long enough that you hear the tide moving in the grass.",
+        "“One name,” she says. “Written where it can read it. That is all it has ever wanted and that is why I have never given it one.”",
+        "“Because the trouble with settling a debt for somebody else is that you have to decide who pays it.”"
+      ],
+      "sets": [
+        "knows_fix"
+      ],
+      "choices": [
+        {
+          "label": "Ask what happens to her count when she is gone.",
+          "to": "della_successor"
+        },
+        {
+          "label": "Go out to the line.",
+          "to": "walk_line"
+        },
+        {
+          "label": "You have heard enough. Pack up and go home.",
+          "to": "leave_early"
+        }
+      ],
+      "mood": "dusk",
+      "image": "house.jpg"
+    },
+    "della_successor": {
+      "text": [
+        "“Somebody picks it up,” she says. “Somebody always has. My mother had it off a man named Pinckney and I do not know who he had it off.”",
+        "She looks at you sideways.",
+        "“It is not a bad life. It is a small one. You sweep the yard and you know the number and nothing out there ever surprises you again.”",
+        "She lets that sit.",
+        "“You would be good at it. Careful men are.”"
+      ],
+      "sets": [
+        "offered_count"
+      ],
+      "choices": [
+        {
+          "label": "Tell her you will take it.",
+          "to": "end_counter",
+          "requires": [
+            "offered_count"
+          ]
+        },
+        {
+          "label": "Tell her you have a job and a truck and a life.",
+          "to": "walk_line"
+        },
+        {
+          "label": "Say nothing, and go back to the instrument.",
+          "to": "third_shot"
+        }
+      ],
+      "mood": "dusk",
+      "image": "house.jpg"
+    },
+    "walk_line": {
+      "text": [
+        "The line is easy to walk once you are on it, which is the wrong kind of easy. The spartina is shorter here and stands in a way that suggests it has been standing in that way a long time.",
+        "You count your paces because you are a surveyor and because it is something to do with your mouth.",
+        "At two hundred and sixteen you come to the stake."
+      ],
+      "choices": [
+        {
+          "label": "Look at it.",
+          "to": "the_stake"
+        }
+      ],
+      "mood": "dusk",
+      "image": "dusk.jpg",
+      "paces": 216
+    },
+    "the_stake": {
+      "text": [
+        "Cypress, squared by hand, driven so long ago the marsh has grown a lip of mud around it like a gum around a tooth. It is not a corner. There is no corner here. It is just a stake in the middle of nothing, holding nothing down.",
+        "There are names on it.",
+        "They start near the top, cut deep and formal. **E. DOIG 1911**. Below that others, smaller, cut by different hands with different tools and different amounts of courage. Eleven of them. The last one is **R. POOLE 1981** and it is very shallow, as if the man had thought better of it partway through.",
+        "Below Poole the wood is clean and pale and wide enough for one more."
+      ],
+      "choices": [
+        {
+          "label": "Cut your own name into it.",
+          "to": "end_even"
+        },
+        {
+          "label": "Cut a name that is not yours.",
+          "to": "end_short"
+        },
+        {
+          "label": "Burn the field book here, on the line, and let the count lose its record.",
+          "to": "end_salt",
+          "requires": [
+            "fieldbook"
+          ]
+        },
+        {
+          "label": "Cut nothing. Put your hands in your pockets.",
+          "to": "refuse"
+        }
+      ],
+      "mood": "dusk",
+      "image": "stake.jpg",
+      "paces": 216
+    },
+    "refuse": {
+      "text": [
+        "You put your hands in your pockets. It is a small thing and it costs you something to do it.",
+        "The light goes. Not gradually — the way a room goes when somebody in another part of the house throws the breaker.",
+        "In the dark the marsh keeps making its noise and under the noise, perfectly level, perfectly patient, you can hear counting."
+      ],
+      "choices": [
+        {
+          "label": "Walk back the way you came, by pace count, in the dark.",
+          "to": "walk_back",
+          "forbids": [
+            "knows_doig"
+          ]
+        },
+        {
+          "label": "Walk back by pace count — and stop at two hundred sixteen.",
+          "to": "end_true",
+          "requires": [
+            "knows_doig",
+            "fieldbook",
+            "knows_count"
+          ]
+        },
+        {
+          "label": "Walk on, out the line, the way Doig went.",
+          "to": "end_doig"
+        }
+      ],
+      "mood": "dark",
+      "image": "dark.jpg"
+    },
+    "walk_back": {
+      "text": [
+        "You walk out by dead reckoning with your hand on the field book that is not there, or is, and you come up onto the shell landing at nine minutes past seven with your boots full of pluff mud and your instrument still on its tripod where you left it.",
+        "The truck starts on the second try."
+      ],
+      "choices": [
+        {
+          "label": "Drive.",
+          "to": "end_twelfth"
+        }
+      ],
+      "mood": "dark",
+      "image": "dark.jpg"
+    },
+    "end_twelfth": {
+      "text": [
+        "You file the twelfth survey on a Tuesday. You put down **216.8 acres**, which is the average of your three shots, and which is a thing you have never done in your professional life.",
+        "The county accepts it without comment. The Doig heirs accept it without comment. It goes into the file behind the other eleven and the file goes back on the cart.",
+        "For a while you tell it as a story. Then you notice that you only tell it in the afternoon, and that you have stopped taking work east of the Ashepoo, and that when you drive past the turning for Bennett’s Point you look at the odometer instead of the road.",
+        "In 1994 a storm takes the house on the spit and the county surveys the parcel again. The new number is **twenty-six acres larger.**",
+        "Nobody can account for it. Nobody is surprised."
+      ],
+      "ending": {
+        "id": "twelfth",
+        "title": "The Twelfth Survey",
+        "kind": "You got out"
+      },
+      "mood": "dusk",
+      "image": "dusk.jpg",
+      "acreage": 216.8
+    },
+    "end_even": {
+      "text": [
+        "You cut it with the awl from the truck kit. It takes longer than you think and your hand is steady the whole way, which afterward is the part you cannot get past.",
+        "When the last letter closes, the marsh goes quiet. Not silent — quiet, the way a room goes quiet when an argument has been settled and everyone is a little embarrassed.",
+        "You walk out. You drive home. You file a clean survey of **217.0 acres**, and it is correct, and every survey after yours will also be correct, and no one will ever know why.",
+        "You live another forty-one years. You are not taken. Della was right that it is not a cruel book.",
+        "It is only that from that October you are never once counted among the living by anything that counts — not by a room you walk into, not by a dog, not by the marsh. You are entered. You are on the other side of the line, in the column that balances.",
+        "It comes out even. You made it come out even."
+      ],
+      "ending": {
+        "id": "even",
+        "title": "Even Numbers",
+        "kind": "The book balances"
+      },
+      "mood": "dark",
+      "image": "stake.jpg",
+      "acreage": 217.0
+    },
+    "end_short": {
+      "text": [
+        "You cut a name that is not yours. It does not matter whose. You will tell yourself for thirty years that it does not matter whose, and you will be wrong about that the entire time.",
+        "The marsh accepts it. The count comes right. You file **217.0 acres** and the file closes and the acreage never moves again.",
+        "Eleven days later a man you have never met does not come home, in a county you have never worked, for reasons his family will never be given.",
+        "The ledger does not care where it takes from. It only cares that the columns match.",
+        "You were very careful. You were careful the way Doig was careful, and like Doig you were careful about the wrong thing."
+      ],
+      "ending": {
+        "id": "short",
+        "title": "Short By One",
+        "kind": "Somebody paid"
+      },
+      "mood": "dark",
+      "image": "stake.jpg",
+      "acreage": 217.0
+    },
+    "end_salt": {
+      "text": [
+        "The oilcloth catches badly and then all at once. You hold it as long as you can and then you put it in the mud and let the fire have it there, on the line, where whatever keeps the book can see its record go.",
+        "Bearings. Distances. The witness trees. Two hundred sixteen tally marks. All of it going up in a flame the colour of a sodium lamp while the tide comes in over your boots.",
+        "When it is out, the marsh sounds like a marsh.",
+        "You survey the parcel one more time, in the last of the light, badly, with shaking hands. **217.0.** You survey it again in the morning. **217.0.** You survey it in March and in the following November and in 1989 when the heirs sell it.",
+        "It is two hundred seventeen acres. It has always been two hundred seventeen acres. There is no record that it was ever anything else, because you burned it.",
+        "You are not sure you helped. A book with no record does not stop keeping count — it only stops being checkable. But the land holds still now, and Della Rivers swept her yard for nine more years, and some evenings that is enough."
+      ],
+      "ending": {
+        "id": "salt",
+        "title": "Salt And Paper",
+        "kind": "You broke the record"
+      },
+      "mood": "fire",
+      "image": "fire.jpg",
+      "acreage": 217.0
+    },
+    "end_counter": {
+      "text": [
+        "You take it on a Thursday, which is not a special day, because Della says that is the point.",
+        "There is no ceremony. She tells you the number of steps down to the landing and the number of piers under the house and the number of years since the last time the marsh came up long, and then she goes inside and lies down and does not get up again, and you understand that she has been waiting on you for a while.",
+        "You call the county on the Monday and resign. They are not surprised; the file is full of men who did strange things afterward.",
+        "The yard is mud and you sweep it anyway. You keep the number. You are the second one who knows it, and then, after a while, you are the only one, and that is when you start looking down the road for someone careful.",
+        "It is a small life. Nothing out here surprises you.",
+        "Nineteen steps. It has been nineteen your whole life, and you check."
+      ],
+      "ending": {
+        "id": "counter",
+        "title": "The Woman Who Counts",
+        "kind": "You took the count"
+      },
+      "mood": "gold",
+      "image": "house.jpg"
+    },
+    "end_doig": {
+      "text": [
+        "You walk out the line in the dark, which is what he did, and you understand within about forty paces that he was not lost and he was not taken.",
+        "He was checking. He had written down that it came out even either way and he was a careful man and *either way* was not good enough for him.",
+        "The ground stops being ground somewhere past three hundred paces. It does not get wet. It gets **regular** — evenly spaced, evenly weighted, the give of it exactly the same under every step, which is not a thing that any marsh in the world has ever done.",
+        "You are walking on the ledger. You have been walking on it since the stake.",
+        "Ahead of you, a long way ahead, there is a man standing at a tripod with his coat off, and he has been standing there a hundred and fifteen years, and he turns around, and he looks so relieved.",
+        "“Two hundred sixteen,” he says. “I counted it twice. Would you count it with me?”",
+        "And because you are careful, and because two men agreeing is the only thing in this world that has ever made a number true — you do."
+      ],
+      "ending": {
+        "id": "doig",
+        "title": "Doig’s Hand",
+        "kind": "You went out the line"
+      },
+      "mood": "dark",
+      "image": "dark.jpg"
+    },
+    "end_true": {
+      "text": [
+        "You walk back in the dark by pace count with the field book against your chest, and at two hundred sixteen you stop.",
+        "You stop because Doig’s last entry was two hundred sixteen tally marks, and because Della said the marsh has been short one since 1911, and because you have finally done the arithmetic that eleven careful men before you did not do:",
+        "**He did not fail to finish. He finished at two hundred sixteen and made himself the two hundred seventeenth.**",
+        "The count was never short a name. It was short *an acre* — the acre a man becomes when he walks out onto a ledger and stands there holding a number down so the rest of it can balance. Two hundred sixteen acres of marsh and one of Ezra Doig.",
+        "So you do the only thing a surveyor can do with a bad monument.",
+        "You take out your book, and you write down what is actually there. Not what the plat says. Not what the county wants. You record the stake, and the line, and the man, by bearing and distance, the way you would record any other corner — and you sign it, and you date it, and by signing it you make him a *thing that has been measured* instead of a thing doing the measuring.",
+        "The marsh lets go all at once, like a held breath.",
+        "In the morning the parcel surveys at **216.0 acres**, and it surveys at 216.0 acres every time anybody asks it, forever, because that is how much marsh is out there and always was.",
+        "The missing acre is on file now. It has a name on it. It is not lost — it is *recorded*, which is the only afterlife a careful man ever really wanted.",
+        "Della Rivers stops counting in 1991 and dies in her sleep, and the yard goes back to mud, and nothing comes up long or short ever again."
+      ],
+      "ending": {
+        "id": "true",
+        "title": "The True Line",
+        "kind": "You measured it properly"
+      },
+      "mood": "dark",
+      "image": "dark.jpg",
+      "acreage": 216.0,
+      "paces": 216
+    }
+  },
+  "flagLabels": {
+    "fieldbook": "Doig’s field book",
+    "knows_doig": "What happened to Doig",
+    "knows_count": "Something keeps a book",
+    "knows_fix": "One name would settle it",
+    "offered_count": "Della’s offer",
+    "della": "Met Della Rivers"
+  }
+}
