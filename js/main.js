@@ -1,3 +1,25 @@
+// Google Analytics, on the property shared with the Rebel Studios sites (reports split by hostname).
+// Only on the live domain, so local previews don't count. Visitors in the EEA, the UK and
+// Switzerland default to consent "denied" (cookieless pings, no cookies) because the site has
+// no consent banner; ads storage is never granted. See privacy.html.
+(function () {
+    if (!/(^|\.)elliotblackstone\.com$/.test(location.hostname)) {
+        return;
+    }
+    const GA_ID = 'G-00TNDVMQNM';
+    const denied = { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', Object.assign({ analytics_storage: 'denied', region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'] }, denied));
+    window.gtag('consent', 'default', Object.assign({ analytics_storage: 'granted' }, denied));
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(tag);
+}());
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');

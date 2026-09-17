@@ -1269,3 +1269,42 @@ body.theme-negative-space {
 @media (prefers-reduced-motion: reduce) {
     .anim-kenburns img, .story-illus__fog { animation: none; }
 }
+
+/* ---------- Plain text pages (privacy) ----------
+   The story layout adds a drop cap and a share bar, which read wrong on a policy page. */
+.legal-page {
+    padding: 3rem 0 5rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.legal-body {
+    color: var(--text-secondary);
+    line-height: 1.9;
+    font-size: 1.05rem;
+}
+
+.legal-body h2 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    margin: 2.2rem 0 0.6rem;
+}
+
+.legal-body p {
+    margin-bottom: 1.1rem;
+}
+
+/* Light text with a red underline: the red accent alone is under 4:1 on this background. */
+.legal-body a,
+#site-footer .footer-subtitle a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-glow);
+    text-underline-offset: 3px;
+}
+
+.legal-body a:hover,
+#site-footer .footer-subtitle a:hover {
+    color: var(--accent-glow);
+}
