@@ -150,5 +150,13 @@
     "category": "Cosmic Horror",
     "hook": "Adele Ziegler's footsteps echo down the empty hallway as she heads for her meeting, but something about this ordinary day doesn't feel right at all.",
     "words": 2256
+  },
+  {
+    "date": "2026-10-02",
+    "slug": "lost-in-willowbrook",
+    "title": "Lost in Willowbrook",
+    "category": "Body Horror",
+    "hook": "Constance's gaze falls on a resident she'd never seen before, her chart still blank except for a single cryptic note: \"Arrived March 15th, condition unknown\".",
+    "words": 2564
   }
 ]
